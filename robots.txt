@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://goldenpeanutsdetail.com/sitemap.xml
+Disallow: /
