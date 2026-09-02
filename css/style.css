@@ -1727,7 +1727,7 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
     linear-gradient(180deg, rgba(11,37,69,0.72) 0%, rgba(11,37,69,0.9) 100%);
   color: var(--white);
   text-align: center;
-  padding: 110px 0 70px;
+  padding: 130px 0 70px;
 }
 .landing-hero-bg {
   position: absolute;
@@ -1742,16 +1742,36 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
 @media (prefers-reduced-motion: reduce) {
   .landing-hero-bg { top: 0; height: 100%; transform: none !important; }
 }
-.landing-flag-corner {
+.landing-bunting {
   position: absolute;
   top: 0;
   left: 0;
-  width: 130px;
-  height: 130px;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  background: repeating-linear-gradient(-45deg, #b22234 0px, #b22234 14px, #ffffff 14px, #ffffff 28px);
-  opacity: 0.9;
+  width: 100%;
+  height: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='38'%3E%3Cline x1='0' y1='3' x2='180' y2='3' stroke='%23ffd166' stroke-width='2' opacity='0.65'/%3E%3Cpath d='M0,3 L45,3 L22.5,32 Z' fill='%23b22234'/%3E%3Cpath d='M45,3 L90,3 L67.5,32 Z' fill='%23ffffff'/%3E%3Cpath d='M90,3 L135,3 L112.5,32 Z' fill='%23f5a623'/%3E%3Cpath d='M135,3 L180,3 L157.5,32 Z' fill='%23b22234'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: top center;
+  opacity: 0.95;
   z-index: 1;
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+}
+.landing-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .landing-balloon {
   position: absolute;
@@ -1768,9 +1788,11 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
   height: 60px;
   background: rgba(255,255,255,0.4);
 }
-.landing-balloon-1 { width: 64px; height: 78px; background: #b22234; top: 40px; right: 90px; transform: rotate(-6deg); }
-.landing-balloon-2 { width: 52px; height: 64px; background: #ffffff; top: 70px; right: 150px; transform: rotate(4deg); }
-.landing-balloon-3 { width: 58px; height: 72px; background: #16407a; top: 24px; right: 30px; transform: rotate(8deg); border: 1px solid rgba(255,255,255,0.3); }
+.landing-balloon-1 { width: 64px; height: 78px; background: #b22234; top: 46px; right: 90px; transform: rotate(-6deg); }
+.landing-balloon-2 { width: 52px; height: 64px; background: #ffffff; top: 76px; right: 150px; transform: rotate(4deg); }
+.landing-balloon-3 { width: 58px; height: 72px; background: #f5a623; top: 30px; right: 30px; transform: rotate(8deg); border: 1px solid rgba(255,255,255,0.3); }
+.landing-balloon-4 { width: 46px; height: 56px; background: #ffffff; top: 50px; left: 40px; transform: rotate(7deg); }
+.landing-balloon-5 { width: 38px; height: 46px; background: #b22234; top: 90px; left: 90px; transform: rotate(-5deg); }
 .landing-stars-row {
   position: relative;
   z-index: 1;
@@ -1781,10 +1803,13 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
 }
 .landing-hero .hero-inner { position: relative; z-index: 1; }
 @media (max-width: 640px) {
-  .landing-flag-corner { width: 80px; height: 80px; }
-  .landing-balloon-1 { width: 42px; height: 52px; top: 20px; right: 50px; }
-  .landing-balloon-2 { width: 34px; height: 42px; top: 40px; right: 84px; }
-  .landing-balloon-3 { width: 38px; height: 48px; top: 12px; right: 12px; }
+  .landing-bunting { height: 26px; background-size: 120px 26px; }
+  .landing-badge { font-size: 0.7rem; padding: 5px 12px; }
+  .landing-balloon-1 { width: 42px; height: 52px; top: 24px; right: 50px; }
+  .landing-balloon-2 { width: 34px; height: 42px; top: 44px; right: 84px; }
+  .landing-balloon-3 { width: 38px; height: 48px; top: 16px; right: 12px; }
+  .landing-balloon-4 { width: 30px; height: 38px; top: 24px; left: 16px; }
+  .landing-balloon-5 { display: none; }
 }
 .landing-features .landing-feature:nth-child(2) { transition-delay: 0.12s; }
 .landing-features .landing-feature:nth-child(3) { transition-delay: 0.24s; }
