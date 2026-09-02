@@ -1475,6 +1475,7 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
   .footer-logo img { height: 30px; }
 }
 @media (max-width: 640px) {
+  .contact-inner { grid-template-columns: 1fr; }
   .reviews-row { gap: 12px; }
   .reviews-summary { width: 130px; flex-direction: column; padding: 10px; }
   .reviews-summary-based { font-size: 0.78rem; }
@@ -1716,3 +1717,119 @@ h1, h2, h3 { color: var(--navy); margin: 0 0 0.5em; font-family: var(--font-seri
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* LANDING PAGE (ad/campaign page) */
+.landing-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Ctext x='4' y='18' font-size='13' fill='%23ffffff' opacity='0.08'%3E%E2%98%85%3C/text%3E%3Ctext x='40' y='50' font-size='9' fill='%23ffffff' opacity='0.06'%3E%E2%98%85%3C/text%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(11,37,69,0.72) 0%, rgba(11,37,69,0.9) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 110px 0 70px;
+}
+.landing-hero-bg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  background: url("../images/gallery/gallery-silverado-lifted.jpg") center 38% / cover no-repeat;
+  will-change: transform;
+  z-index: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-hero-bg { top: 0; height: 100%; transform: none !important; }
+}
+.landing-flag-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  background: repeating-linear-gradient(-45deg, #b22234 0px, #b22234 14px, #ffffff 14px, #ffffff 28px);
+  opacity: 0.9;
+  z-index: 1;
+}
+.landing-balloon {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset -8px -8px 14px rgba(0,0,0,0.15), inset 8px 8px 14px rgba(255,255,255,0.25);
+  z-index: 1;
+}
+.landing-balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 60px;
+  background: rgba(255,255,255,0.4);
+}
+.landing-balloon-1 { width: 64px; height: 78px; background: #b22234; top: 40px; right: 90px; transform: rotate(-6deg); }
+.landing-balloon-2 { width: 52px; height: 64px; background: #ffffff; top: 70px; right: 150px; transform: rotate(4deg); }
+.landing-balloon-3 { width: 58px; height: 72px; background: #16407a; top: 24px; right: 30px; transform: rotate(8deg); border: 1px solid rgba(255,255,255,0.3); }
+.landing-stars-row {
+  position: relative;
+  z-index: 1;
+  letter-spacing: 6px;
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.landing-hero .hero-inner { position: relative; z-index: 1; }
+@media (max-width: 640px) {
+  .landing-flag-corner { width: 80px; height: 80px; }
+  .landing-balloon-1 { width: 42px; height: 52px; top: 20px; right: 50px; }
+  .landing-balloon-2 { width: 34px; height: 42px; top: 40px; right: 84px; }
+  .landing-balloon-3 { width: 38px; height: 48px; top: 12px; right: 12px; }
+}
+.landing-features .landing-feature:nth-child(2) { transition-delay: 0.12s; }
+.landing-features .landing-feature:nth-child(3) { transition-delay: 0.24s; }
+.services-grid .service-card:nth-child(2) { transition-delay: 0.12s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.24s; }
+.landing-photo-grid img:nth-child(2) { transition-delay: 0.1s; }
+.landing-photo-grid img:nth-child(3) { transition-delay: 0.2s; }
+.landing-photo-grid img:nth-child(4) { transition-delay: 0.3s; }
+.landing-hero .hero-inner { max-width: 640px; margin: 0 auto; }
+.landing-hero .eyebrow { color: var(--gold-light); font-family: var(--font-sans); }
+.landing-hero h1 { color: var(--white); font-size: 2.6rem; line-height: 1.15; margin-bottom: 16px; }
+.landing-hero .hero-sub { font-family: var(--font-sans); font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 30px; }
+.price-block { margin: 0 0 30px; }
+.price-old { font-family: var(--font-sans); font-size: 1.1rem; color: rgba(255,255,255,0.6); text-decoration: line-through; margin-right: 10px; }
+.price-new { font-family: var(--font-serif); font-size: 1.8rem; color: var(--gold-light); font-weight: 600; }
+.price-note { font-family: var(--font-sans); font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 6px; }
+.landing-hero .hero-ctas { justify-content: center; }
+
+.landing-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
+}
+.landing-feature {
+  padding: 0 32px;
+  border-left: 1px solid #e2e2e2;
+  text-align: left;
+}
+.landing-feature:first-child { border-left: none; padding-left: 0; }
+.landing-feature h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.landing-feature p { color: #555; margin: 0; }
+@media (max-width: 720px) {
+  .landing-features { grid-template-columns: 1fr; gap: 28px; }
+  .landing-feature { border-left: none; padding: 0; border-top: 1px solid #e2e2e2; padding-top: 24px; }
+  .landing-feature:first-child { border-top: none; padding-top: 0; }
+}
+
+.landing-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.landing-photo-grid img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+.landing-quote { text-align: center; max-width: 640px; margin: 0 auto; }
+.landing-quote .pull-quote { border-left: none; border-top: 3px solid var(--gold); padding: 24px 0 0; text-align: center; }
+.landing-quote .pull-quote-cite { text-align: center; }
