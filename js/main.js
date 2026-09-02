@@ -27,18 +27,20 @@ if (promoBanner) {
 const navToggle = document.getElementById('nav-toggle');
 const mainNav = document.getElementById('main-nav');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-mainNav.querySelectorAll('a').forEach((link) => {
-  if (link.classList.contains('nav-dropdown-toggle')) return;
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   });
-});
+
+  mainNav.querySelectorAll('a').forEach((link) => {
+    if (link.classList.contains('nav-dropdown-toggle')) return;
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 document.querySelectorAll('.nav-dropdown-toggle').forEach((toggle) => {
   toggle.addEventListener('click', (e) => {
